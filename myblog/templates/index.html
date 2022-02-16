@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>索引界面</title>
+</head>
+<body>
+<center>
+    {% include 'mainpage.html' %}
+    <h3>浏览博客信息</h3>
+    <table width="800" border="1">
+        <tr>
+            <th>id号</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>操作</th>
+        </tr>
+        {% for art in articles %}
+            <tr>
+                <td>{{ art.id }}</td>
+                <td>{{ art.title }}</td>
+                <td>{{ art.content }}</td>
+                <td>
+                    <a href="{% url 'edit' art.id %}">编辑</a>
+                    <a href="javascript:doDel('{% url 'del' art.id %}');">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
