@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{article.title}}</title>
+</head>
+<body>
+<center>
+    {% include "head.html" %}
+    <h1>《{{article.title}}》</h1>
+    <hr/>
+    <br><br>
+    <h3>{{article.content}}</h3>
+    <hr/>
+    <h2>评论区</h2>
+</center>
+<br><a href="{% url 'addpage' article.id %}">添加评论</a><br>
+    {% for com in comments %}
+    <b>{{com.author}}:</b>
+    <br>
+    <b>{{com.content}}</b>
+    <br>
+    {% endfor %}
+</body>
+</html>
